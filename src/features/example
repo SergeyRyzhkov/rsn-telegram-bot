@@ -1,0 +1,68 @@
+
+
+// bot.api.sendMessage("-1002134841299", "!2!");
+// 207520304;
+
+// bot.api.setMyCommands([
+//   { command: "start", description: "Запуск бота" },
+//   { command: "share", description: "Поделиться данными" },
+//   { command: "inlinekeyboard", description: "inline_keyboard" },
+// ]);
+
+// bot.hears(/пипец/, async (ctx) => {
+//   await ctx.reply("Ругаемся?", {
+//     parse_mode: "HTML",
+//     reply_parameters: { message_id: ctx.msg.message_id },
+//   });
+// });
+
+// bot.on(
+//   "message",
+//   async (ctx) =>
+//     await ctx.reply(
+//       'Привет! Подпишись на <a href="https://vk.com/vozrozhdeny_spb">телеграм-канал</a> pomazkov.js',
+//       {
+//         parse_mode: "HTML",
+//         reply_parameters: { message_id: ctx.msg.message_id },
+//       }
+//     )
+// );
+
+// const shareKeyboard = new Keyboard()
+//   .requestLocation("Геолокация")
+//   .requestContact("Контакт")
+//   .requestPoll("🤖 Опрос")
+//   .placeholder("Я хочу поделиться...")
+//   .resized()
+//   .oneTime();
+
+// bot.command("share", async (ctx) => {
+//   await ctx.reply("Какими данными хочешь поделиться?", {
+//     reply_markup: shareKeyboard,
+//   });
+// });
+
+// const inlineKeyboard = new InlineKeyboard()
+//   .row({
+//     text: "Узнать статус заказа",
+//     callback_data: "order-status",
+//   })
+//   .row({
+//     text: "Узнать статус заказа1",
+//     callback_data: "order-status1",
+//   });
+
+// const com1 = {};
+
+// bot.command("com1");
+
+// bot.command("inlinekeyboard", async (ctx) => {
+//   await ctx.reply("Выберите цифру", {
+//     reply_markup: inlineKeyboard,
+//   });
+// });
+
+// bot.callbackQuery("order-status", async (ctx) => {
+//   await ctx.callbackQuery.message?.editText("Статус заказа: В пути");
+//   await ctx.answerCallbackQuery();
+// });
