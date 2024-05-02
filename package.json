@@ -1,0 +1,54 @@
+{
+  "name": "rsn-tgbot",
+  "version": "1.0.0",
+  "description": "@SRyzhkov TG Bot",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Sergey Ryzhkov",
+      "email": "SergeyRyzhkov76@gmail.com"
+    }
+  ],
+  "keywords": [],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "typings": "./dist/typings/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "docs": "yarn typedoc",
+    "build": "vite build && typedoc",
+    "dev": "vite-node --watch ./src/main.ts",
+    "format": "prettier .  --write",
+    "eslint": "eslint --fix"
+  },
+  "dependencies": {
+    "@grammyjs/auto-chat-action": "0.1.1",
+    "@grammyjs/hydrate": "1.4.1",
+    "@grammyjs/i18n": "1.0.2",
+    "@grammyjs/parse-mode": "1.9.0",
+    "grammy": "^1.22.4",
+    "node-graceful-shutdown": "^1.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@grammyjs/types": "3.6.2",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^9.1.1",
+    "eslint-config-prettier": "9.1.0",
+    "prettier": "3.2.5",
+    "tslib": "^2.6.2",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
+    "vite-plugin-dts": "^3.8.3",
+    "@microsoft/tsdoc": "^0.14.1",
+    "rollup-plugin-node-externals": "^7.1.2",
+    "tsc-watch": "6.2.0",
+    "tsx": "^4.8.2",
+    "vite-node": "^1.5.3"
+  }
+}
