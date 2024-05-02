@@ -9,11 +9,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-<<<<<<< HEAD
-    "outDir": "build",
-=======
     "outDir": "dist",
->>>>>>> master
     "rootDir": ".",
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -22,10 +18,6 @@
     "importHelpers": true,
     "strictPropertyInitialization": false,
     "noEmit": true,
-<<<<<<< HEAD
-    // "forceConsistentCasingInFileNames": true,
-=======
->>>>>>> master
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
@@ -33,19 +25,6 @@
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "types": ["node"]
   },
-<<<<<<< HEAD
-  "include": [
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
-=======
   "include": ["src/**/*.js", "src/**/*.ts", "src/**/*.d.ts", "/**/*.d.ts"],
->>>>>>> master
   "exclude": ["node_modules", "dist", "output", "public"]
 }

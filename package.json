@@ -1,22 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "rsn-tg-bot",
-  "version": "1.0.0",
-  "license": "MIT",
-  "type": "module",
-  "imports": {
-    "#root/*": "./build/src/*"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "format": "eslint . --fix",
-    "typecheck": "tsc",
-    "build": "tsc --noEmit false",
-    "dev": "tsc-watch --onSuccess \"tsx ./src/main.ts\"",
-    "start": "tsc && tsx ./src/main.ts",
-    "start:force": "tsx ./src/main.ts",
-    "prepare": "npx husky install"
-=======
   "name": "rsn-tgbot",
   "version": "1.0.0",
   "description": "@SRyzhkov TG Bot",
@@ -41,7 +23,6 @@
     "dev": "vite-node --watch ./src/main.ts",
     "format": "prettier .  --write",
     "eslint": "eslint --fix"
->>>>>>> master
   },
   "dependencies": {
     "@grammyjs/auto-chat-action": "0.1.1",
