@@ -1,31 +1,35 @@
-import { setChatNightMode } from "./features/ChatNightMode";
-import { CustomBotContext } from "./CustomBotContext";
 import { middlewareList } from "@/MiddlewareList";
-import { catchError } from "@/features/CatchError";
-// https://github.com/bot-base/telegram-bot-template/blob/main/src/bot/index.ts
-// https://github.com/bot-base/telegram-bot-template/blob/main/src/main.ts
+import { onShutdown } from "node-graceful-shutdown";
+import { setChaSleeptMode } from "./features/ChatSleeptMode";
+import { getBotInstance } from "./BotInstanceFactory";
 
-import { autoChatAction } from "@grammyjs/auto-chat-action";
-import { hydrate } from "@grammyjs/hydrate";
-import { hydrateReply, parseMode } from "@grammyjs/parse-mode";
-import { Bot as TelegramBot } from "grammy";
-
-export const createBot = (token: string) => {
-  const bot = new TelegramBot<CustomBotContext>(token, {});
-
-  bot.api.config.use(parseMode("HTML"));
-
-  bot.use(autoChatAction(bot.api));
-  bot.use(hydrate());
-  bot.use(hydrateReply);
-
-  bot.catch(catchError());
-
-  return bot;
+const startBot = () => {
+  console.log("Try start TG bot");
+  getBotInstance().start();
 };
-const bot = createBot("838925503:AAHfbuzzNJKXJjhJsnVmz_IjSKCNSCYo2Ok");
-bot.use(middlewareList);
 
-bot.start();
+const stopBot = (reason?: string) => {
+  if (!!getBotInstance()) {
+    console.log("Try stop bot ", reason || "");
+    getBotInstance().stop();
+  }
+};
 
-setChatNightMode(-1002024704154, 5, bot.api);
+getBotInstance().use(middlewareList);
+startBot();
+
+setChaSleeptMode(-1002024704154, 5, getBotInstance().api);
+
+onShutdown(() => {
+  stopBot("onShutdown by node-graceful-shutdown");
+});
+
+process.on("SIGQUIT", () => stopBot("SIGQUIT"));
+process.on("SIGINT", () => stopBot("SIGINT"));
+
+if (import.meta.hot) {
+  import.meta.hot.on("vite:beforeFullReload", async () => {
+    console.log("Vite HMR (reload )");
+    stopBot();
+  });
+}
