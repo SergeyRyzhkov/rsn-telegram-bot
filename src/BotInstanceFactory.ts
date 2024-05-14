@@ -1,14 +1,14 @@
-import { Api, RawApi, Bot as TelegramBot } from "grammy";
+import { Api, RawApi, Bot } from "grammy";
 import { CustomBotContext } from "./CustomBotContext";
 import { autoChatAction } from "@grammyjs/auto-chat-action";
 import { hydrate } from "@grammyjs/hydrate";
 import { parseMode, hydrateReply } from "@grammyjs/parse-mode";
 import { createErrorHandler } from "./ErrorHandler";
 
-let botInstance: TelegramBot<CustomBotContext, Api<RawApi>>;
+let botInstance: Bot<CustomBotContext, Api<RawApi>>;
 
 const createBot = (token: string) => {
-  const bot = new TelegramBot<CustomBotContext>(token, {});
+  const bot = new Bot<CustomBotContext, Api<RawApi>>(token, {});
 
   bot.api.config.use(parseMode("HTML"));
 

@@ -18,12 +18,12 @@ export const stopSwearWordsCommand = () => {
       console.log("====МАТ " + ctx.msg.from?.username);
       console.log(ctx.msg.text);
       console.log("====МАТ=====");
-      const sendText = `<tg-spoiler>${text}</tg-spoiler>\n@${ctx.msg.from?.username}\n<b>Не ругаемся матом 👍👍👍</b>`;
+      const sendText = `<tg-spoiler>${text}</tg-spoiler>\n@${ctx.msg.from?.username}\n<b>Не ругаемся матом! 👍👍👍</b>`;
       await ctx.reply(sendText, {
         parse_mode: "HTML",
         reply_parameters: { message_id: ctx.msg.message_id },
       });
-      ctx.msg.delete();
+      ctx.deleteMessage();
     }
   };
 };

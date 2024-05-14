@@ -1,6 +1,6 @@
 import { middlewareList } from "@/MiddlewareList";
 import { onShutdown } from "node-graceful-shutdown";
-import { setChaSleeptMode } from "./features/ChatSleeptMode";
+import { setChatSleeptMode } from "./features/ChatSleeptMode";
 import { getBotInstance } from "./BotInstanceFactory";
 
 const startBot = () => {
@@ -18,7 +18,9 @@ const stopBot = (reason?: string) => {
 getBotInstance().use(middlewareList);
 startBot();
 
-setChaSleeptMode(-1002024704154, 5, getBotInstance().api);
+//-1002134841299 138
+// -1002024704154 - voz и топик 5
+setChatSleeptMode(-1002024704154, 5, getBotInstance().api);
 
 onShutdown(() => {
   stopBot("onShutdown by node-graceful-shutdown");
